@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>About - Task Helper</title>
+    <style>
+        /* ============================================
+           TASK HELPER - ABOUT PAGE
+           Modern Beautiful Design | Fully Responsive
+           ============================================ */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1e293b;
+            background: #ffffff;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* ========== NAVIGATION ========== */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: #334155;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-menu a:hover {
+            color: #4c1d95;
+        }
+        
+        .nav-menu a.active {
+            color: #4c1d95;
+            font-weight: 600;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 240px;
+            padding: 1rem;
+            list-style: none;
+            top: 100%;
+            left: 0;
+            border-radius: 16px;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            z-index: 100;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu hr {
+            margin: 0.5rem 0;
+            border-color: #e2e8f0;
+        }
+        
+        .dropdown-menu strong {
+            color: #4c1d95;
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #1e1b4b;
+        }
+        
+        /* ========== PAGE HEADER ========== */
+        .page-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            color: #64748b;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* ========== ABOUT CONTENT ========== */
+        .about-section {
+            padding: 5rem 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2rem;
+            color: #1e1b4b;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text .highlight {
+            color: #4c1d95;
+            font-weight: 600;
+        }
+        
+        .about-text p {
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #4c1d95;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+        
+        .about-image {
+            background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+            border-radius: 32px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .about-image .emoji-large {
+            font-size: 8rem;
+        }
+        
+        .about-image h3 {
+            margin-top: 1rem;
+            color: #1e1b4b;
+        }
+        
+        /* ========== SERVICES WE OFFER ========== */
+        .services-offer {
+            background: #f8fafc;
+            padding: 5rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e1b4b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-header p {
+            color: #64748b;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 24px;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-color: #c7d2fe;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+        }
+        
+        .service-info h3 {
+            font-size: 1.1rem;
+            color: #1e1b4b;
+            margin-bottom: 0.2rem;
+        }
+        
+        .service-info p {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        
+        /* ========== WHY CHOOSE US ========== */
+        .why-choose {
+            padding: 5rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature h3 {
+            font-size: 1.1rem;
+            color: #1e1b4b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature p {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        
+        /* ========== CTA ========== */
+        .cta {
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+        
+        .cta-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-container p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn-outline-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 14px 36px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-light:hover {
+            background: white;
+            color: #4c1d95;
+        }
+        
+        /* ========== FOOTER ========== */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .footer-col h3, .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-col a:hover {
+            color: #7c3aed;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 2rem;
+            border-top: 1px solid #1e293b;
+            font-size: 0.8rem;
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: #f1f5f9;
+                margin-top: 0.5rem;
+                box-shadow: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .about-stats {
+                gap: 0.5rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>✦ Task Helper</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li class="dropdown">
+                    <a href="#">Services ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><strong>📚 Academic</strong></li>
+                        <li><a href="services/academic/assignments.html">Assignments</a></li>
+                        <li><a href="services/academic/thesis.html">Thesis</a></li>
+                        <li><a href="services/academic/dissertation.html">Dissertation</a></li>
+                        <li><hr></li>
+                        <li><strong>💻 Digital</strong></li>
+                        <li><a href="services/digital/websites-pos-saas.html">Websites / POS / SaaS</a></li>
+                        <li><a href="services/digital/mobile-apps.html">Mobile Apps</a></li>
+                        <li><a href="services/digital/google-ranking.html">Google Ranking</a></li>
+                        <li><a href="services/digital/social-media-management.html">Social Media Management</a></li>
+                    </ul>
+                </li>
+                <li><a href="portfolio/index.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Task Helper</h1>
+            <p>Your trusted partner for academic success and digital growth</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Who <span class="highlight">We Are</span></h2>
+                    <p>Task Helper was born from a simple idea: <strong>quality work shouldn't be complicated to get</strong>. Whether you need help with a thesis, a website, or growing your online presence — we're here to make it happen.</p>
+                    <p>We bridge two worlds: <strong>academic excellence</strong> and <strong>digital innovation</strong>. Our team combines research expertise with technical skills to deliver results that actually help you move forward.</p>
+                    <p>No fluff. No hidden fees. Just honest work and real conversations about what you need.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Done</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="emoji-large">🚀</div>
+                    <h3>From Research to Revenue</h3>
+                    <p style="margin-top: 0.5rem; color: #64748b;">One partner for all your needs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services We Offer -->
+    <section class="services-offer">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We Do</h2>
+                <p>Two sides of the same coin — both designed to help you succeed</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <div class="service-info">
+                        <h3>Academic Writing</h3>
+                        <p>Assignments, thesis, dissertation, research papers</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <div class="service-info">
+                        <h3>Websites & POS</h3>
+                        <p>Custom websites, POS systems, SaaS platforms</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <div class="service-info">
+                        <h3>Mobile Apps</h3>
+                        <p>iOS and Android application development</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <div class="service-info">
+                        <h3>Google Ranking</h3>
+                        <p>SEO that actually gets you to page one</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <div class="service-info">
+                        <h3>Social Media Management</h3>
+                        <p>Grow your brand on Instagram, Facebook, LinkedIn</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <div class="service-info">
+                        <h3>Custom Solutions</h3>
+                        <p>Tell us what you need — we'll figure it out</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Task Helper</h2>
+                <p>What makes us different</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-emoji">💬</div>
+                    <h3>Discuss First</h3>
+                    <p>No fixed prices. We talk, understand, then quote fairly.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-emoji">⚡</div>
+                    <h3>Fast Response</h3>
+                    <p>Usually within 2-4 hours on WhatsApp</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-emoji">🔄</div>
+                    <h3>Revisions Included</h3>
+                    <p>Not happy? We fix it. No extra charges.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-emoji">🔒</div>
+                    <h3>100% Confidential</h3>
+                    <p>Your privacy is our priority. Always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container cta-container">
+            <h2>Ready to work together?</h2>
+            <p>One conversation is all it takes to get started.</p>
+            <a href="contact.html" class="btn-outline-light">Start a Conversation →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>✦ Task Helper</h3>
+                <p>Academic + Digital solutions.<br>One conversation at a time.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="legal/terms.html">Terms</a></li>
+                    <li><a href="legal/privacy.html">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services/academic/assignments.html">Assignments</a></li>
+                    <li><a href="services/academic/thesis.html">Thesis</a></li>
+                    <li><a href="services/digital/websites-pos-saas.html">Websites & POS</a></li>
+                    <li><a href="services/digital/google-ranking.html">SEO & Ranking</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>📧 pppmanyega@gmail.com</p>
+                <p>💬 WhatsApp: ++254790387706</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Task Helper. All services are research & editing support.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+        
+        // Mobile dropdown toggle
+        if (window.innerWidth <= 768) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    });
+                }
+            });
+        }
+        
+        console.log('About page loaded');
+    </script>
+</body>
+</html>
