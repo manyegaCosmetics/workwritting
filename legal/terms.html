@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Terms of Service - Task Helper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: #334155;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-menu a:hover {
+            color: #4c1d95;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 240px;
+            padding: 1rem;
+            list-style: none;
+            top: 100%;
+            left: 0;
+            border-radius: 16px;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            z-index: 100;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-menu hr {
+            margin: 0.5rem 0;
+            border-color: #e2e8f0;
+        }
+        
+        .dropdown-menu strong {
+            color: #4c1d95;
+            display: block;
+            margin: 0.5rem 0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #1e1b4b;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: #64748b;
+        }
+        
+        /* Content */
+        .legal-content {
+            padding: 4rem 0;
+        }
+        
+        .legal-content h2 {
+            font-size: 1.5rem;
+            color: #1e1b4b;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .legal-content h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        .legal-content h3 {
+            font-size: 1.2rem;
+            color: #334155;
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        .legal-content p {
+            color: #475569;
+            margin-bottom: 1rem;
+        }
+        
+        .legal-content ul {
+            margin: 1rem 0 1rem 2rem;
+            color: #475569;
+        }
+        
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .last-updated {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 3rem 0 2rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .footer-col h3, .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        
+        .footer-col a:hover {
+            color: #7c3aed;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #1e293b;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: #f1f5f9;
+                margin-top: 0.5rem;
+                box-shadow: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>✦ Task Helper</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#">Services ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><strong>📚 Academic</strong></li>
+                        <li><a href="../services/academic/assignments.html">Assignments</a></li>
+                        <li><a href="../services/academic/thesis.html">Thesis</a></li>
+                        <li><a href="../services/academic/dissertation.html">Dissertation</a></li>
+                        <li><hr></li>
+                        <li><strong>💻 Digital</strong></li>
+                        <li><a href="../services/digital/websites-pos-saas.html">Websites / POS / SaaS</a></li>
+                        <li><a href="../services/digital/mobile-apps.html">Mobile Apps</a></li>
+                        <li><a href="../services/digital/google-ranking.html">Google Ranking</a></li>
+                        <li><a href="../services/digital/social-media-management.html">Social Media Management</a></li>
+                    </ul>
+                </li>
+                <li><a href="../portfolio/index.html">Portfolio</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p>Please read these terms carefully before using our services</p>
+        </div>
+    </section>
+
+    <section class="legal-content">
+        <div class="container">
+            <div class="last-updated">
+                📅 Last Updated: April 20, 2026
+            </div>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing or using Task Helper's services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, please do not use our services.</p>
+
+            <h2>2. Description of Services</h2>
+            <p>Task Helper provides academic support services (including assignments, thesis, dissertation assistance) and digital services (including website development, POS systems, SaaS platforms, mobile applications, SEO, and social media management).</p>
+            <p><strong>Important Note:</strong> Our academic services are for <strong>research, editing, and guidance purposes only</strong>. We do not condone plagiarism or submitting our work as your own. Clients are responsible for using our services ethically and in accordance with their institution's policies.</p>
+
+            <h2>3. Client Responsibilities</h2>
+            <p>As a client, you agree to:</p>
+            <ul>
+                <li>Provide accurate and complete information about your requirements</li>
+                <li>Use our academic services ethically and responsibly</li>
+                <li>Not submit our work as original without proper citation</li>
+                <li>Communicate clearly about deadlines and expectations</li>
+                <li>Pay all fees as agreed upon</li>
+            </ul>
+
+            <h2>4. Pricing and Payments</h2>
+            <p>We operate on a custom quote basis. Prices are discussed and agreed upon before work begins. Payment terms:</p>
+            <ul>
+                <li>50% deposit required before starting any project</li>
+                <li>Remaining 50% due upon completion and before final delivery</li>
+                <li>Payments are non-refundable once work has commenced</li>
+                <li>Accepted payment methods: PayPal, Wise, Bank Transfer, Cryptocurrency</li>
+            </ul>
+
+            <h2>5. Revisions and Edits</h2>
+            <p>We want you to be satisfied with our work. Our revision policy includes:</p>
+            <ul>
+                <li>Up to 3 rounds of free revisions for academic work</li>
+                <li>Up to 2 rounds of free revisions for digital projects</li>
+                <li>Revisions must be requested within 14 days of delivery</li>
+                <li>Additional revisions may incur extra charges</li>
+            </ul>
+
+            <h2>6. Delivery and Timelines</h2>
+            <p>We are committed to meeting agreed deadlines. However:</p>
+            <ul>
+                <li>Timelines are estimates based on information provided</li>
+                <li>Delays may occur due to complexity or client feedback time</li>
+                <li>We will communicate any potential delays immediately</li>
+                <li>Rush orders may incur additional fees</li>
+            </ul>
+
+            <h2>7. Confidentiality and Privacy</h2>
+            <p>Your privacy is important to us. We will never share your personal information or project details with third parties. All communications and work are kept strictly confidential. See our <a href="privacy.html">Privacy Policy</a> for more details.</p>
+
+            <h2>8. Intellectual Property</h2>
+            <p>Upon full payment, you receive full ownership rights to the work delivered. However:</p>
+            <ul>
+                <li>We retain the right to include the work in our portfolio (with identifying information removed)</li>
+                <li>We do not claim ownership of your original ideas or materials</li>
+                <li>You are responsible for ensuring your use of our work complies with applicable laws</li>
+            </ul>
+
+            <h2>9. Refund Policy</h2>
+            <p>We strive for 100% satisfaction. Refund policy:</p>
+            <ul>
+                <li>Full refund if no work has been started</li>
+                <li>Partial refund if work is partially complete (pro-rated)</li>
+                <li>No refund if work is fully delivered and meets original requirements</li>
+                <li>Refund requests must be made within 7 days of delivery</li>
+            </ul>
+
+            <h2>10. Limitation of Liability</h2>
+            <p>Task Helper is not liable for:</p>
+            <ul>
+                <li>Grades or academic outcomes — our role is research and editing support</li>
+                <li>Business outcomes from digital services (traffic, sales, rankings)</li>
+                <li>Indirect or consequential damages</li>
+                <li>Losses resulting from client misuse of our work</li>
+            </ul>
+
+            <h2>11. Termination</h2>
+            <p>Either party may terminate a project agreement with written notice. If terminated by the client, work completed will be delivered upon payment for completed portions. We reserve the right to refuse service to anyone for any reason.</p>
+
+            <h2>12. Changes to Terms</h2>
+            <p>We may update these Terms of Service from time to time. Continued use of our services after changes constitutes acceptance of the new terms.</p>
+
+            <h2>13. Governing Law</h2>
+            <p>These terms are governed by the laws applicable in our jurisdiction. Any disputes will be resolved through good-faith negotiation before legal action.</p>
+
+            <h2>14. Contact Us</h2>
+            <p>If you have any questions about these Terms of Service, please contact us:</p>
+            <ul>
+                <li>Email: pppmanyega@gmail.com</li>
+                <li>WhatsApp: ++254790387706</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>✦ Task Helper</h3>
+                <p>Academic + Digital solutions.<br>One conversation at a time.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="../services/academic/assignments.html">Assignments</a></li>
+                    <li><a href="../services/academic/thesis.html">Thesis</a></li>
+                    <li><a href="../services/digital/websites-pos-saas.html">Websites & POS</a></li>
+                    <li><a href="../services/digital/google-ranking.html">SEO & Ranking</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>📧 pppmanyega@gmail.com</p>
+                <p>💬 WhatsApp: ++254790387706</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Task Helper. All services are research & editing support.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+        
+        if (window.innerWidth <= 768) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
